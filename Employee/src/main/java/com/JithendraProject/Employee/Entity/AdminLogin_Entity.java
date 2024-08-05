@@ -23,6 +23,8 @@ public class AdminLogin_Entity {
 
     @Column(name = "password")
     private String password;
+    
+    
 
     // Getters and setters
     public Long getId() {

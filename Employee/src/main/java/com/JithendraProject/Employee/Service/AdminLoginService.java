@@ -2,17 +2,21 @@ package com.JithendraProject.Employee.Service;
 
 import java.util.List;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
-
 import com.JithendraProject.Employee.Entity.AdminLogin_Entity;
+import com.JithendraProject.Employee.Entity.CurrentUserSession;
+import com.JithendraProject.Employee.Entity.LogIn;
+import com.JithendraProject.Employee.exception.CurrentUserExecption;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+public interface AdminLoginService {
 
-@Service
-public interface AdminLoginService{
-	boolean authenticateUser(String username, String password);
-	public AdminLogin_Entity createadmin(AdminLogin_Entity adminentites);
-	public List<AdminLogin_Entity> getAlladminDetails();
+    CurrentUserSession logIn(LogIn logIn) throws CurrentUserExecption;
+
+    AdminLogin_Entity createadmin(AdminLogin_Entity adminEntities);
+
+    boolean validateUuId(String uuId) throws CurrentUserExecption;
+
+    List<AdminLogin_Entity> getAlladminDetails(String username) throws CurrentUserExecption;
+
+    String logOut(String uuId) throws CurrentUserExecption;
+    
 }
